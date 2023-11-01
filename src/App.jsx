@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+import Search from "./Search";
+import Card from "./Card";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [animals, setAnimals] = useState([
+    {
+      id: 1,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      title: "Random pic",
+    },
+    {
+      id: 2,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      title: "2nd Random pic",
+    },
+    {
+      id: 3,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      title: "3rd Random pic",
+    },
+    {
+      id: 4,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      title: "4th Random pic",
+    },
+  ]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="app">
+        <Header />
+        <Search />
+        <main>
+          <div className="cards">
+            {animals.map((animal) => (
+              <Card key={animal.id} title={animal.title} image={animal.image} />
+            ))}
+          </div>
+        </main>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
