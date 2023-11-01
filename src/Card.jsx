@@ -1,18 +1,35 @@
+import { useState } from "react";
+
 const Card = (props) => {
+  const [count, setCount] = useState(props.likes);
+
+  function minusCount() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
+  function plusCount() {
+    setCount((prevCount) => prevCount + 1);
+  }
+
   return (
     <div className="card">
-      <div className="close-button">X</div>
+      <div className="close-button">
+        <span className="material-symbols-outlined">close</span>
+      </div>
       <img src={props.image} alt="random-pic-unsplash" />
-      <div className="info">
+      <div>
         <h2 className="title">{props.title}</h2>
         <div className="bottom-row">
-          <div className="minus-button">
-            <span className="material-symbols-outlined">remove</span>
+          <button className="minus-button" onClick={minusCount}>
+            <span className="material-symbols-outlined">heart_minus</span>
+          </button>
+          <div className="likes">
+            <span className="material-symbols-outlined">favorite</span>
+            <p>{count}</p>
           </div>
-          <div className="likes">0</div>
-          <div className="plus-button">
-            <span className="material-symbols-outlined">add</span>
-          </div>
+          <button className="plus-button" onClick={plusCount}>
+            <span className="material-symbols-outlined">heart_plus</span>
+          </button>
         </div>
       </div>
     </div>
