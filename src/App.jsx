@@ -1,37 +1,41 @@
-// import { useState } from "react";
+import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Search from "./Search";
 import Card from "./Card";
-import { animals } from "../animalsList";
+import { animals as animalsList } from "../animalsList";
 
 function App() {
-  // const [animals, setAnimals] = useState([
-  //   {
-  //     id: 1,
-  //     image: "https://source.unsplash.com/1600x900/?nature,water",
-  //     name: "1st name",
-  //     likes: 0
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "https://source.unsplash.com/1600x900/?nature,water",
-  //     name: "2nd name",
-  //     likes: 0
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "https://source.unsplash.com/1600x900/?nature,water",
-  //     name: "3rd name",
-  //     likes: 0
-  //   },
-  //   {
-  //     id: 4,
-  //     image: "https://source.unsplash.com/1600x900/?nature,water",
-  //     name: "4th name",
-  //     likes: 0
-  //   },
-  // ]);
+  const [animals, setAnimals] = useState([
+    {
+      id: 1,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      name: "1st name",
+      likes: 0,
+    },
+    {
+      id: 2,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      name: "2nd name",
+      likes: 0,
+    },
+    {
+      id: 3,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      name: "3rd name",
+      likes: 0,
+    },
+    {
+      id: 4,
+      image: "https://source.unsplash.com/1600x900/?nature,water",
+      name: "4th name",
+      likes: 0,
+    },
+  ]);
+
+  function removeHandler(id) {
+    setAnimals(animals.filter((animal) => animal.id !== id));
+  }
 
   return (
     <>
@@ -46,6 +50,7 @@ function App() {
                 title={animal.name}
                 image={animal.image}
                 likes={animal.likes}
+                remove={() => removeHandler(animal.id)}
               />
             ))}
           </div>

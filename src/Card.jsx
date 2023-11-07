@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const Card = (props) => {
-  const [count, setCount] = useState(props.likes);
+const Card = ({ image, title, likes, remove }) => {
+  const [count, setCount] = useState(likes);
 
   function minusCount() {
     setCount((prevCount) => prevCount - 1);
@@ -14,11 +14,13 @@ const Card = (props) => {
   return (
     <div className="card">
       <div className="close-button">
-        <span className="material-symbols-outlined">close</span>
+        <button onClick={remove} className="material-symbols-outlined">
+          close
+        </button>
       </div>
-      <img src={props.image} alt="random-pic-unsplash" />
+      <img src={image} alt="random-pic-unsplash" />
       <div>
-        <h2 className="title">{props.title}</h2>
+        <h2 className="title">{title}</h2>
         <div className="bottom-row">
           <button className="minus-button" onClick={minusCount}>
             <span className="material-symbols-outlined">heart_minus</span>
