@@ -48,8 +48,16 @@ input {
   border: 1px solid #324b75d5;
   border-radius: 3px;
   color: white;
-  margin: 20px;
+  margin: 25px;
   padding: 10px;
+}
+
+.plus-likes {
+  color: darkred;
+}
+
+.minus-likes {
+  color: black;
 }
 
 .cards {
@@ -73,6 +81,7 @@ input {
   font-size: 16px;
   text-align: center;
   color: #333;
+  text-shadow: 2px 2px 2px rgb(255, 255, 255);
 }
 
 .card .bottom-row {
@@ -139,6 +148,18 @@ input {
 
 .card .likes .material-symbols-outlined {
   color: darkred;
+}
+
+/* - - - LINKS - - - */
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 40px;
+}
+
+li:hover {
+  color: #c40000;
 }
 
 /* - - - FOOTER - - - */

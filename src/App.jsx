@@ -2,39 +2,18 @@ import { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Search from "./Search";
+import Links from "./Links";
 import Card from "./Card";
 import { animals as animalsList } from "../animalsList";
+// import { birds as birdsList } from "../animalsList";
 
 function App() {
-  const [animals, setAnimals] = useState([
-    {
-      id: 1,
-      image: "https://source.unsplash.com/1600x900/?nature,water",
-      name: "1st name",
-      likes: 0,
-    },
-    {
-      id: 2,
-      image: "https://source.unsplash.com/1600x900/?nature,water",
-      name: "2nd name",
-      likes: 0,
-    },
-    {
-      id: 3,
-      image: "https://source.unsplash.com/1600x900/?nature,water",
-      name: "3rd name",
-      likes: 0,
-    },
-    {
-      id: 4,
-      image: "https://source.unsplash.com/1600x900/?nature,water",
-      name: "4th name",
-      likes: 0,
-    },
-  ]);
+  const [animals, setAnimals] = useState(animalsList);
+  // const [birds, setBirds] = useState(birdsList);
 
-  function removeHandler(id) {
-    setAnimals(animals.filter((animal) => animal.id !== id));
+  function removeHandler(name) {
+    setAnimals(animals.filter((animal) => animal.name !== name));
+    // setBirds(animals.filter((bird) => bird.name !== name));
   }
 
   return (
@@ -42,15 +21,25 @@ function App() {
       <div className="app">
         <Header />
         <Search />
+        <Links />
         <main>
+          {/* <div className="birds cards">
+            {birds.map((bird) => (
+              <Card
+                key={bird.name}
+                title={bird.name.toUpperCase()}
+                likes={bird.likes}
+                removeBird={() => removeHandler(bird.name)}
+              />
+            ))}
+          </div> */}
           <div className="cards">
             {animals.map((animal) => (
               <Card
-                key={animal.id}
-                title={animal.name}
-                image={animal.image}
+                key={animal.name}
+                title={animal.name.toUpperCase()}
                 likes={animal.likes}
-                remove={() => removeHandler(animal.id)}
+                remove={() => removeHandler(animal.name)}
               />
             ))}
           </div>

@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-const Card = ({ image, title, likes, remove }) => {
+const Card = ({ title, likes, remove }) => {
   const [count, setCount] = useState(likes);
 
-  function minusCount() {
-    setCount((prevCount) => prevCount - 1);
-  }
-
-  function plusCount() {
-    setCount((prevCount) => prevCount + 1);
+  function counter(value) {
+    value === 1
+      ? setCount((prevCount) => prevCount + 1)
+      : setCount((prevCount) => prevCount - 1);
   }
 
   return (
@@ -18,18 +16,23 @@ const Card = ({ image, title, likes, remove }) => {
           close
         </button>
       </div>
-      <img src={image} alt="random-pic-unsplash" />
+      <img
+        src={`https://source.unsplash.com/400x400/?${title}`}
+        alt="random-pic-unsplash"
+      />
       <div>
         <h2 className="title">{title}</h2>
         <div className="bottom-row">
-          <button className="minus-button" onClick={minusCount}>
+          <button className="minus-button" onClick={() => counter(-1)}>
             <span className="material-symbols-outlined">heart_minus</span>
           </button>
           <div className="likes">
-            <span className="material-symbols-outlined">favorite</span>
-            <p>{count}</p>
+            <span className="material-symbols-outlined">
+              {count >= 0 ? "favorite" : "thumb_down"}
+            </span>
+            <p className={count >= 0 ? "plus-likes" : "minus-likes"}>{count}</p>
           </div>
-          <button className="plus-button" onClick={plusCount}>
+          <button className="plus-button" onClick={() => counter(1)}>
             <span className="material-symbols-outlined">heart_plus</span>
           </button>
         </div>
