@@ -16,11 +16,15 @@ function App() {
     // setBirds(animals.filter((bird) => bird.name !== name));
   }
 
+  function search(e) {
+    console.log(e.target.value);
+  }
+
   return (
     <>
       <div className="app">
         <Header />
-        <Search />
+        <Search search={search} />
         <Links />
         <main>
           {/* <div className="birds cards">

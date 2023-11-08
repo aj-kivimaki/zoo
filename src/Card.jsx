@@ -28,9 +28,9 @@ const Card = ({ title, likes, remove }) => {
           </button>
           <div className="likes">
             <span className="material-symbols-outlined">
-              {count >= 0 ? "favorite" : "thumb_down"}
+              {count >= 0 ? "favorite" : "heart_broken"}
             </span>
-            <p className={count >= 0 ? "plus-likes" : "minus-likes"}>{count}</p>
+            <p className={count > 0 ? "plus-likes" : "minus-likes"}>{count}</p>
           </div>
           <button className="plus-button" onClick={() => counter(1)}>
             <span className="material-symbols-outlined">heart_plus</span>
