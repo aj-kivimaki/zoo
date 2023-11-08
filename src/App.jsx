@@ -4,11 +4,13 @@ import Header from "./Header";
 import Search from "./Search";
 import Links from "./Links";
 import Card from "./Card";
-import { animals as animalsList } from "../animalsList";
-// import { birds as birdsList } from "../animalsList";
+import {
+  animals as animalsList /* , birds as birdsList */,
+} from "../animalsList";
 
 function App() {
   const [animals, setAnimals] = useState(animalsList);
+  const [searchTerm, setSearchTerm] = useState("");
   // const [birds, setBirds] = useState(birdsList);
 
   function removeHandler(name) {
@@ -17,7 +19,11 @@ function App() {
   }
 
   function search(e) {
-    console.log(e.target.value);
+    setSearchTerm(e.target.value);
+    const filteredAnimals = animals.filter((animal) =>
+      animal.name.startsWith(searchTerm)
+    );
+    setAnimals(filteredAnimals);
   }
 
   return (
@@ -44,6 +50,7 @@ function App() {
                 title={animal.name.toUpperCase()}
                 likes={animal.likes}
                 remove={() => removeHandler(animal.name)}
+                /* onRemove, addLikes, removeLikes */
               />
             ))}
           </div>
