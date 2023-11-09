@@ -30,15 +30,15 @@ img {
 
 header {
   width: 100%;
-  text-align: center;
-  font-size: 30px;
-  padding: 30px 0;
+  font-size: 26px;
+  padding: 26px 0;
   background-color: rgba(24, 89, 0, 0.85);
 }
 
 header h1 {
   font-size: 48px;
   color: white;
+  padding-left: 5%;
 }
 
 /* - - - MAIN - - - */
@@ -52,7 +52,12 @@ input {
   border-radius: 3px;
   color: #333;
   margin: 25px;
-  padding: 10px;
+  padding: 15px;
+  font-size: 18px;
+}
+
+input:focus {
+  outline: darkred;
 }
 
 .plus-likes {
@@ -66,17 +71,19 @@ input {
 .cards {
   padding: 60px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
 }
 
 .card {
   border-radius: 5px;
-  width: 200px;
+  width: 240px;
   height: 400px;
   background-color: #ececec;
   position: relative;
   box-shadow: 2px 2px 2px #324b7553;
+  text-transform: capitalize;
 }
 
 .card .title {
@@ -157,21 +164,23 @@ input {
 ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   background-color: rgba(200, 200, 200, 0.2);
   border: 1px solid #333;
   padding: 20px 40px;
   border-radius: 5px;
+  margin: 20px;
 }
 
 li {
   color: white;
-  transition: all ease 0.3s;
+  transition: all ease 0.15s;
+  font-size: 18px;
 }
 
 li:hover {
   color: black;
-  transform: translateY(-3px);
   cursor: pointer;
 }
 
@@ -185,4 +194,11 @@ footer {
   background-color: rgba(50, 75, 117, 0.802);
   color: white;
   text-align: center;
+}
+
+@media (max-width: 629px) {
+  ul {
+    flex-direction: column;
+    padding: 20px 80px;
+  }
 }

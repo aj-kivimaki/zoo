@@ -1,18 +1,8 @@
-import { useState } from "react";
-
-const Card = ({ title, likes, remove }) => {
-  const [count, setCount] = useState(likes);
-
-  function counter(value) {
-    value === 1
-      ? setCount((prevCount) => prevCount + 1)
-      : setCount((prevCount) => prevCount - 1);
-  }
-
+const Card = ({ title, onRemove, likes, addLike, removeLike }) => {
   return (
     <div className="card">
       <div className="close-button">
-        <button onClick={remove} className="material-symbols-outlined">
+        <button onClick={onRemove} className="material-symbols-outlined">
           close
         </button>
       </div>
@@ -23,16 +13,16 @@ const Card = ({ title, likes, remove }) => {
       <div>
         <h2 className="title">{title}</h2>
         <div className="bottom-row">
-          <button className="minus-button" onClick={() => counter(-1)}>
+          <button className="minus-button" onClick={removeLike}>
             <span className="material-symbols-outlined">heart_minus</span>
           </button>
           <div className="likes">
             <span className="material-symbols-outlined">
-              {count >= 0 ? "favorite" : "heart_broken"}
+              {likes >= 0 ? "favorite" : "heart_broken"}
             </span>
-            <p className={count > 0 ? "plus-likes" : "minus-likes"}>{count}</p>
+            <p className={likes > 0 ? "plus-likes" : "minus-likes"}>{likes}</p>
           </div>
-          <button className="plus-button" onClick={() => counter(1)}>
+          <button className="plus-button" onClick={addLike}>
             <span className="material-symbols-outlined">heart_plus</span>
           </button>
         </div>

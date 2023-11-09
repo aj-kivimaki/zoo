@@ -10,7 +10,7 @@ import {
 
 function App() {
   const [animals, setAnimals] = useState(animalsList);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredAnimals, setFilteredAnimals] = useState([]);
   // const [birds, setBirds] = useState(birdsList);
 
   function removeHandler(name) {
@@ -19,11 +19,28 @@ function App() {
   }
 
   function search(e) {
-    setSearchTerm(e.target.value);
-    const filteredAnimals = animals.filter((animal) =>
-      animal.name.startsWith(searchTerm)
+    const keyword = e.target.value;
+    setFilteredAnimals(
+      animals.filter((animal) =>
+        animal.name.toLowerCase().startsWith(keyword.toLowerCase())
+      )
     );
-    setAnimals(filteredAnimals);
+  }
+
+  function updateLikes(name, str) {
+    setAnimals(
+      animals.map((animal) => {
+        if (animal.name === name) {
+          if (str === "add") {
+            return { ...animal, likes: animal.likes + 1 };
+          } else {
+            return { ...animal, likes: animal.likes - 1 };
+          }
+        } else {
+          return animal;
+        }
+      })
+    );
   }
 
   return (
@@ -47,10 +64,11 @@ function App() {
             {animals.map((animal) => (
               <Card
                 key={animal.name}
-                title={animal.name.toUpperCase()}
+                title={animal.name}
                 likes={animal.likes}
-                remove={() => removeHandler(animal.name)}
-                /* onRemove, addLikes, removeLikes */
+                onRemove={() => removeHandler(animal.name)}
+                addLike={() => updateLikes(animal.name, "add")}
+                removeLike={() => updateLikes(animal.name)}
               />
             ))}
           </div>
