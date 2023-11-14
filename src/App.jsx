@@ -1,31 +1,34 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Links from "./Links";
 import Footer from "./Footer";
 import Header from "./Header";
-import Links from "./Links";
 import Card from "./Card";
+import Cards from "./Cards";
+import About from "./About";
 import {
   animals as animalsList /* , birds as birdsList */,
 } from "../animalsList";
 
 function App() {
   const [animals, setAnimals] = useState(animalsList);
-  const [search, setSearch] = useState("");
   // const [birds, setBirds] = useState(birdsList);
+  const [search, setSearch] = useState("");
 
   function removeHandler(name) {
     setAnimals(animals.filter((animal) => animal.name !== name));
-    // setBirds(animals.filter((bird) => bird.name !== name));
+    // setBirds(birds.filter((bird) => bird.name !== name));
   }
 
   function handleSearch(e) {
     setSearch(e.target.value);
   }
 
-  function updateLikes(name, str) {
+  function updateLikes(name, action) {
     setAnimals(
       animals.map((animal) => {
         if (animal.name === name) {
-          if (str === "add") {
+          if (action === "add") {
             return { ...animal, likes: animal.likes + 1 };
           } else {
             return { ...animal, likes: animal.likes - 1 };
@@ -53,18 +56,15 @@ function App() {
     ));
 
   return (
-    <>
-      <div className="app">
-        <Header onchange={handleSearch} />
-        <Links />
-        <main>
-          <div className="cards match">
-            {animalsFilter.length === 0 ? "No matches!" : animalsFilter}
-          </div>
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="app">
+      <Header onchange={handleSearch} />
+      <Links />
+      <Routes>
+        <Route path="/" element={<Cards animalsFilter={animalsFilter} />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

@@ -1,18 +1,20 @@
+import { Link } from "react-router-dom";
+
 const Links = () => {
   return (
     <div className="links">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <Link to="/animals">Animals</Link>
         </li>
         <li>
-          <a href="#">Animals</a>
+          <Link to="/birds">Birds</Link>
         </li>
         <li>
-          <a href="#">Birds</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/">Home</Link>
         </li>
       </ul>
     </div>
