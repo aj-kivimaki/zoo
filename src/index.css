@@ -32,7 +32,7 @@ header {
   width: 100%;
   font-size: 26px;
   padding: 26px 0;
-  background-color: rgba(24, 89, 0, 0.85);
+  background-color: rgba(85, 97, 118, 0.8);
 }
 
 header h1 {
@@ -41,11 +41,17 @@ header h1 {
   padding-left: 5%;
 }
 
-/* - - - MAIN - - - */
-
-main {
-  min-height: calc(100vh - 220px);
+a {
+  color: white;
+  text-decoration: none;
+  transition: all ease 0.15s;
 }
+
+a:hover {
+  color: black;
+}
+
+/* - - - MAIN - - - */
 
 input {
   border: 1px solid #324b75d5;
@@ -54,6 +60,7 @@ input {
   margin: 25px;
   padding: 15px;
   font-size: 18px;
+  opacity: 0.8;
 }
 
 input:focus {
@@ -112,7 +119,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all ease 0.2s;
+  transition: all ease 0.15s;
 }
 
 .card .minus-button,
@@ -126,7 +133,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all ease 0.2s;
+  transition: all ease 0.15s;
 }
 
 .card .close-button button:hover,
@@ -191,7 +198,7 @@ footer {
   height: 20px;
   font-size: 16px;
   padding: 2px;
-  background-color: rgba(50, 75, 117, 0.802);
+  background-color: rgba(85, 97, 118, 0.8);
   color: white;
   text-align: center;
 }

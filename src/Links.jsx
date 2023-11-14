@@ -2,10 +2,18 @@ const Links = () => {
   return (
     <div className="links">
       <ul>
-        <li>Home</li>
-        <li>Animals</li>
-        <li>Birds</li>
-        <li>About</li>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Animals</a>
+        </li>
+        <li>
+          <a href="#">Birds</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
       </ul>
     </div>
   );
