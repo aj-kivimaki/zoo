@@ -29,16 +29,20 @@ img {
 /* - - - HEADER - - - */
 
 header {
+  display: flex;
+  align-items: center;
   width: 100%;
   font-size: 26px;
-  padding: 26px 0;
+  padding: 16px 0;
   background-color: rgba(85, 97, 118, 0.8);
+  margin-bottom: 50px;
 }
 
 header h1 {
   font-size: 48px;
   color: white;
   padding-left: 5%;
+  padding-right: 400px;
 }
 
 a {
@@ -52,6 +56,10 @@ a:hover {
 }
 
 /* - - - MAIN - - - */
+
+main {
+  min-height: calc(100vh - 250px);
+}
 
 input {
   border: 1px solid #324b75d5;
@@ -166,6 +174,11 @@ input:focus {
   color: darkred;
 }
 
+.match {
+  color: white;
+  font-size: 20px;
+}
+
 /* - - - LINKS - - - */
 
 ul {
@@ -177,7 +190,6 @@ ul {
   border: 1px solid #333;
   padding: 20px 40px;
   border-radius: 5px;
-  margin: 20px;
 }
 
 li {
