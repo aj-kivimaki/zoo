@@ -213,6 +213,14 @@ li:hover {
   font-size: 30px;
 }
 
+.about p {
+  margin-bottom: 15px;
+}
+
+.about a {
+  font-size: 20px;
+}
+
 /* - - - FOOTER - - - */
 
 footer {
