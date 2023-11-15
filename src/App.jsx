@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import Links from "./Links";
-import Footer from "./Footer";
-import Header from "./Header";
-import Card from "./Card";
-import Cards from "./Cards";
-import About from "./About";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Card from "./components/Card";
+
+import Root from "./routes/Root";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Animals from "./routes/Animals";
+import Birds from "./routes/Birds";
+import Error from "./routes/Error";
 import {
   animals as animalsList /* , birds as birdsList */,
 } from "../animalsList";
@@ -55,17 +57,27 @@ function App() {
       />
     ));
 
-  return (
-    <div className="app">
-      <Header onchange={handleSearch} />
-      <Links />
-      <Routes>
-        <Route path="/" element={<Cards animalsFilter={animalsFilter} />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root handleSearch={handleSearch} />,
+      errorElement: <Error />,
+      children: [
+        { path: "/", element: <Home /> },
+        {
+          path: "/animals",
+          element: <Animals animalsFilter={animalsFilter} />,
+        },
+        {
+          path: "/birds",
+          element: <Birds />,
+        },
+        { path: "/about", element: <About /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
