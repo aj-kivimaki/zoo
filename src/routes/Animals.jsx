@@ -1,10 +1,10 @@
-const Animals = ({ creaturesToFilter }) => {
+const Animals = ({ filterCreatures }) => {
   return (
     <main>
       <div className="page cards match">
-        {creaturesToFilter("animals").length === 0
+        {filterCreatures("animals").length === 0
           ? "No match found!"
-          : creaturesToFilter("animals")}
+          : filterCreatures("animals")}
       </div>
     </main>
   );

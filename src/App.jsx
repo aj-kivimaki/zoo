@@ -16,29 +16,25 @@ function App() {
   const [search, setSearch] = useState("");
 
   function removeHandler(name, creatures) {
-    if (creatures === "animals") {
-      setAnimals(animals.filter((animal) => animal.name !== name));
-    } else {
-      setBirds(birds.filter((bird) => bird.name !== name));
-    }
+    creatures === "animals"
+      ? setAnimals(animals.filter((animal) => animal.name !== name))
+      : setBirds(birds.filter((bird) => bird.name !== name));
   }
 
   function handleSearch(e) {
     setSearch(e.target.value);
   }
 
-  function updateLikes(name, action, creatures) {
-    const creaturesArray = checkCreature(creatures);
-
-    const updatedCreatures = creaturesArray.map((animal) => {
-      if (animal.name === name) {
+  function updateLikes(name, creatures, action) {
+    const updatedCreatures = checkCreatures(creatures).map((creature) => {
+      if (creature.name === name) {
         if (action === "add") {
-          return { ...animal, likes: animal.likes + 1 };
+          return { ...creature, likes: creature.likes + 1 };
         } else {
-          return { ...animal, likes: animal.likes - 1 };
+          return { ...creature, likes: creature.likes - 1 };
         }
       } else {
-        return animal;
+        return creature;
       }
     });
 
@@ -47,29 +43,27 @@ function App() {
       : setBirds(updatedCreatures);
   }
 
-  function checkCreature(creatures) {
+  function checkCreatures(creatures) {
     return creatures === "animals" ? animals : birds;
   }
 
-  const creaturesToFilter = (creatures) => {
-    const creaturesArray = checkCreature(creatures);
-
-    const filteredCreatures = creaturesArray
-      .filter((animal) =>
-        animal.name.toLowerCase().startsWith(search.toLowerCase())
+  function filterCreatures(creatures) {
+    const filteredCreatures = checkCreatures(creatures)
+      .filter((creature) =>
+        creature.name.toLowerCase().startsWith(search.toLowerCase())
       )
-      .map((animal) => (
+      .map((creature) => (
         <Card
-          key={animal.name}
-          title={animal.name}
-          likes={animal.likes}
-          onRemove={() => removeHandler(animal.name, creatures)}
-          addLike={() => updateLikes(animal.name, "add", creatures)}
-          removeLike={() => updateLikes(animal.name, "remove", creatures)}
+          key={creature.name}
+          title={creature.name}
+          likes={creature.likes}
+          onRemove={() => removeHandler(creature.name, creatures)}
+          addLike={() => updateLikes(creature.name, creatures, "add")}
+          removeLike={() => updateLikes(creature.name, creatures)}
         />
       ));
     return filteredCreatures;
-  };
+  }
 
   const router = createBrowserRouter([
     {
@@ -80,11 +74,11 @@ function App() {
         { path: "/", element: <Home /> },
         {
           path: "/animals",
-          element: <Animals creaturesToFilter={creaturesToFilter} />,
+          element: <Animals filterCreatures={filterCreatures} />,
         },
         {
           path: "/birds",
-          element: <Birds creaturesToFilter={creaturesToFilter} />,
+          element: <Birds filterCreatures={filterCreatures} />,
         },
         { path: "/about", element: <About /> },
       ],

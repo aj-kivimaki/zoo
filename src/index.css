@@ -263,6 +263,24 @@ li:hover a {
   font-size: 18px;
 }
 
+/* - - - ERROR - - - */
+
+.error {
+  background-image: url(../public/not-found.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.error-msg {
+  font-size: 28px;
+  padding: 20% 0 0 20%;
+}
+
+.error-msg p {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
 /* - - - FOOTER - - - */
 
 footer {
