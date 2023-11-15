@@ -267,7 +267,8 @@ li:hover a {
 
 footer {
   height: 20px;
-  font-size: 14px;
+  font-size: 12px;
+  padding-top: 2px;
   color: white;
   text-align: center;
   background-color: rgba(85, 97, 118, 0.7);

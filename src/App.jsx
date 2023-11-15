@@ -8,13 +8,11 @@ import About from "./routes/About";
 import Animals from "./routes/Animals";
 import Birds from "./routes/Birds";
 import Error from "./routes/Error";
-import {
-  animals as animalsList /* , birds as birdsList */,
-} from "../animalsList";
+import { animals as animalsList, birds as birdsList } from "../animalsList";
 
 function App() {
   const [animals, setAnimals] = useState(animalsList);
-  // const [birds, setBirds] = useState(birdsList);
+  const [birds, setBirds] = useState(birdsList);
   const [search, setSearch] = useState("");
 
   function removeHandler(name) {
