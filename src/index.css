@@ -27,6 +27,10 @@ img {
   min-height: calc(100vh - 124px);
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* - - - HEADER - - - */
 
 .header-container {
@@ -219,48 +223,78 @@ input:focus {
   display: flex;
 }
 
-ul {
-  list-style-type: none;
+.links ul {
   background-color: rgba(200, 200, 200, 0.2);
   border: 1px solid #333;
   border-radius: 5px;
 }
 
-li {
+.links li {
   transition: all ease 0.1s;
   font-size: 18px;
   font-weight: bold;
 }
 
-li .link {
+.links li .link {
   display: inline-block;
   padding: 16px 18px;
 }
 
-li:hover {
+.links li:hover {
   background-color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
 
-li:hover a {
+.links li:hover a {
   color: black;
 }
 
 /* - - - ABOUT - - - */
 
 .about {
+  font-family: monospace;
+  color: white;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: white;
+  padding: 0 100px;
+  line-height: 1.7;
+}
+
+.about .container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.about h2,
+.about h3 {
+  padding: 0 0 10px 10px;
+}
+
+.about .list-title {
+  background-color: rgba(51, 51, 51, 0.8);
   font-size: 24px;
-  background-color: rgba(255, 255, 255, 0.25);
+  padding: 10px;
+}
+
+.about-project {
+  background-color: rgba(51, 51, 51, 0.8);
+  margin-bottom: 40px;
+  padding: 20px;
 }
 
 .about p {
-  margin: 15px 0;
+  padding: 0 10px;
   font-size: 18px;
+}
+
+.about li {
+  font-size: 18px;
+  padding-left: 10px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* - - - ERROR - - - */

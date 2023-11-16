@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Card from "./components/Card";
-
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import About from "./routes/About";

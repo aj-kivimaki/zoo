@@ -22,3 +22,12 @@ This example is the MVP and you should improve it.
 6. Style your app
 7. Connect animalsList.js with App state
 8. Display animals on the App (list and keys)
+
+## Refactor your zoo app:
+
+Add links to:
+
+- Home // only two big images - links to animals and bird pages
+- Animals // listing all animals, have animals search
+- Birds // listing all birds, have birds search
+- About // page about this project and summary of the features and what you learned with this project

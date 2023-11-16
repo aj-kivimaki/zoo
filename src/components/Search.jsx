@@ -1,7 +1,7 @@
 const Search = ({ onchange }) => {
   return (
     <div className="search">
-      <input onChange={onchange} name="search" placeholder="search..."></input>
+      <input onChange={onchange} placeholder="search..."></input>
     </div>
   );
 };
