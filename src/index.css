@@ -18,7 +18,7 @@ img {
 
 .app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("../public/bg-img.jpg");
+  background-image: url("./images/bg-img.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -300,7 +300,7 @@ input:focus {
 /* - - - ERROR - - - */
 
 .error {
-  background-image: url(../public/not-found.jpg);
+  background-image: url("./images/not-found.jpg");
   background-size: cover;
   height: 100vh;
 }

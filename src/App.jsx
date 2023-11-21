@@ -4,8 +4,7 @@ import Card from "./components/Card";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import About from "./routes/About";
-import Animals from "./routes/Animals";
-import Birds from "./routes/Birds";
+import Category from "./routes/Category";
 import Error from "./routes/Error";
 import { animals as animalsList, birds as birdsList } from "../animalsList";
 
@@ -73,11 +72,15 @@ function App() {
         { path: "/", element: <Home /> },
         {
           path: "/animals",
-          element: <Animals filterCreatures={filterCreatures} />,
+          element: (
+            <Category filterCreatures={filterCreatures} creature="animals" />
+          ),
         },
         {
           path: "/birds",
-          element: <Birds filterCreatures={filterCreatures} />,
+          element: (
+            <Category filterCreatures={filterCreatures} creature="birds" />
+          ),
         },
         { path: "/about", element: <About /> },
       ],
