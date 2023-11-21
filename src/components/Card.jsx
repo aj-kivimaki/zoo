@@ -1,4 +1,6 @@
-const Card = ({ title, onRemove, likes, addLike, removeLike }) => {
+import { Link } from "react-router-dom";
+
+const Card = ({ title, onRemove, likes, addLike, removeLike, category }) => {
   return (
     <div className="card">
       <div className="close-button">
@@ -7,7 +9,7 @@ const Card = ({ title, onRemove, likes, addLike, removeLike }) => {
         </button>
       </div>
       <img
-        src={`https://source.unsplash.com/400x400/?${title}`}
+        src={`https://source.unsplash.com/800x800/?${title},${category}`}
         alt="random-pic-unsplash"
       />
       <div>
@@ -26,6 +28,9 @@ const Card = ({ title, onRemove, likes, addLike, removeLike }) => {
             <span className="material-symbols-outlined">heart_plus</span>
           </button>
         </div>
+      </div>
+      <div className="see-more">
+        <Link to={title}>SEE MORE</Link>
       </div>
     </div>
   );

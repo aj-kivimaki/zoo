@@ -132,7 +132,7 @@ input:focus {
 .card {
   border-radius: 5px;
   width: 240px;
-  height: 400px;
+  min-height: 400px;
   background-color: #ececec;
   position: relative;
   box-shadow: 2px 2px 2px #324b7553;
@@ -210,6 +210,20 @@ input:focus {
 
 .card .likes .material-symbols-outlined {
   color: darkred;
+}
+
+.card .see-more {
+  margin-top: 10px;
+  padding: 6px 0;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: rgba(85, 97, 118, 0.7);
+  text-align: center;
+}
+
+.card .see-more:hover {
+  color: #333;
+  cursor: pointer;
 }
 
 .match {
@@ -297,6 +311,74 @@ input:focus {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* - - - SINGLE - - - */
+
+.single {
+  margin: 100px auto;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.single img {
+  width: 50%;
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.single .info {
+  position: relative;
+  background-color: white;
+  color: #333;
+  width: 50%;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.single .title,
+.single .likes {
+  padding: 80px 0;
+}
+
+.single .title {
+  text-align: center;
+  font-size: 40px;
+  text-transform: capitalize;
+}
+
+.single .likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single .material-symbols-outlined {
+  font-size: 180px;
+  color: darkred;
+}
+
+.single .info .navigate-back {
+  position: absolute;
+  border: none;
+  font-size: 50px;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+}
+
+.single .info .navigate-back:hover {
+  cursor: pointer;
+  color: #333;
+}
+
+.single .number {
+  position: absolute;
+  font-size: 36px;
+  padding-bottom: 20px;
+  color: darkred;
+}
+
 /* - - - ERROR - - - */
 
 .error {
@@ -348,5 +430,19 @@ footer {
 @media (max-width: 1040px) {
   .header-container {
     flex-direction: column;
+  }
+
+  .single {
+    flex-direction: column;
+    width: 70%;
+    margin: 40px auto;
+  }
+
+  .single img {
+    width: 100%;
+  }
+
+  .single .info {
+    width: 100%;
   }
 }

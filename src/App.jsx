@@ -5,6 +5,7 @@ import Root from "./routes/Root";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Category from "./routes/Category";
+import Single from "./routes/Single";
 import Error from "./routes/Error";
 import { animals as animalsList, birds as birdsList } from "../animalsList";
 
@@ -58,6 +59,8 @@ function App() {
           onRemove={() => removeHandler(creature.name, creatures)}
           addLike={() => updateLikes(creature.name, creatures, "add")}
           removeLike={() => updateLikes(creature.name, creatures)}
+          onClick={() => console.log("card clicked")}
+          category={creatures}
         />
       ));
     return filteredCreatures;
@@ -77,10 +80,18 @@ function App() {
           ),
         },
         {
-          path: "/birds",
+          path: "/animals/:animal",
+          element: <Single categoryArray={animals} category="animal" />,
+        },
+        {
+          path: "/birds/",
           element: (
             <Category filterCreatures={filterCreatures} creature="birds" />
           ),
+        },
+        {
+          path: "/birds/:bird",
+          element: <Single categoryArray={birds} category="bird" />,
         },
         { path: "/about", element: <About /> },
       ],
