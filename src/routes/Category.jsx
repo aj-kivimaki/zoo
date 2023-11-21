@@ -1,7 +1,7 @@
 const Category = ({ filterCreatures, creature }) => {
   return (
-    <main>
-      <div className="page cards match">
+    <main className="page">
+      <div className="cards match">
         {filterCreatures(creature).length === 0
           ? "No match found!"
           : filterCreatures(creature)}
