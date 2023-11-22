@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { animals as animalsList, birds as birdsList } from "../animalsList";
-import Card from "./components/Card";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import About from "./routes/About";
@@ -10,91 +9,57 @@ import Single from "./routes/Single";
 import Error from "./routes/Error";
 
 function App() {
-  const [animals, setAnimals] = useState(animalsList);
-  const [birds, setBirds] = useState(birdsList);
-  /*  const [zoo, setZoo] = useState({
+  const [search, setSearch] = useState("");
+  const [zoo, setZoo] = useState({
     animals: animalsList,
     birds: birdsList,
-  }); */
-  const [search, setSearch] = useState("");
+  });
 
-  function removeHandler(name, creatures) {
-    // zoo[creatures].filter...
-    // setZoo({...zoo, [creatures], newArray})  - - - use category instead of creatures
-    creatures === "animals"
-      ? setAnimals(animals.filter((animal) => animal.name !== name))
-      : setBirds(birds.filter((bird) => bird.name !== name));
+  function handleRemove(name, category) {
+    const newArray = zoo[category].filter((elem) => elem.name !== name);
+    setZoo({ ...zoo, [category]: newArray });
   }
 
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
-
-  function updateLikes(name, creatures, action) {
-    // zoo[category].map...
-    const updatedCreatures = checkCreatures(creatures).map((creature) => {
-      if (creature.name === name) {
+  function handleLikes(name, category, action) {
+    const updatedCategory = zoo[category].map((elem) => {
+      if (elem.name === name) {
         if (action === "add") {
-          return { ...creature, likes: creature.likes + 1 };
+          return { ...elem, likes: elem.likes + 1 };
         } else {
-          return { ...creature, likes: creature.likes - 1 };
+          return { ...elem, likes: elem.likes - 1 };
         }
       } else {
-        return creature;
+        return zoo[category];
       }
     });
-
-    // setZoo({...zoo, [creatures], newArray})  - - - use category instead of creatures
-    creatures === "animals"
-      ? setAnimals(updatedCreatures)
-      : setBirds(updatedCreatures);
+    setZoo({ ...zoo, [category]: updatedCategory });
   }
 
-  function handleClean() {
-    console.log("clean");
-    setSearch("");
-  }
-
-  function checkCreatures(creatures) {
-    return creatures === "animals" ? animals : birds;
-  } // get rid of this
-
-  function filterCreatures(creatures) {
-    const filteredCreatures = checkCreatures(creatures)
-      .filter((creature) =>
-        creature.name.toLowerCase().startsWith(search.toLowerCase())
-      )
-      .map((creature) => (
-        <Card
-          key={creature.name}
-          title={creature.name}
-          likes={creature.likes}
-          onRemove={() => removeHandler(creature.name, creatures)}
-          addLike={() => updateLikes(creature.name, creatures, "add")}
-          removeLike={() => updateLikes(creature.name, creatures)}
-          category={creatures} //search handler
-        />
-      ));
-    return filteredCreatures;
-  }
+  const handleSearch = (e) => setSearch(e.target.value);
+  const handleClean = () => setSearch("");
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root handleSearch={handleSearch} handleClean={handleClean} />,
+      element: <Root handlesearch={handleSearch} handleclean={handleClean} />,
       errorElement: <Error />,
       children: [
         { path: "/", element: <Home /> },
         {
           path: ":category",
-          // pass all the props here
           element: (
-            <Category filterCreatures={filterCreatures} creature="animals" />
+            <Category
+              zoo={zoo}
+              onRemove={handleRemove}
+              addLike={handleLikes}
+              removeLike={handleLikes}
+              search={search}
+            />
           ),
         },
         {
           path: "/:category/:name",
-          element: <Single categoryArray={animals} category="animal" />,
+          element: <Single zoo={zoo} />,
         },
         { path: "/about", element: <About /> },
       ],

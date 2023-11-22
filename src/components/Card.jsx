@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ title, onRemove, likes, addLike, removeLike, category }) => {
+const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
   return (
     <div className="card">
       <div className="close-button">

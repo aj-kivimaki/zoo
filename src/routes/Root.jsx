@@ -2,13 +2,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Outlet, useLocation } from "react-router-dom";
 
-const Root = ({ handleSearch, handleClean }) => {
+const Root = ({ handlesearch, handleclean }) => {
   const { pathname } = useLocation();
 
   return (
     <div className="app">
       {pathname !== "/" && (
-        <Header onchange={handleSearch} onclick={handleClean} />
+        <Header onchange={handlesearch} onclick={handleclean} />
       )}
       <Outlet />
       {pathname !== "/" && <Footer />}

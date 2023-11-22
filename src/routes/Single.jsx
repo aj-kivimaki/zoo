@@ -1,9 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 
-const Single = ({ categoryArray, category }) => {
+const Single = ({ zoo }) => {
   const params = useParams();
-  const title = params[category];
-  const data = categoryArray.find((creature) => creature.name === title);
+  const category = params.category;
+  const title = params.name;
+
+  const data = zoo[category].find((elem) => elem.name === title);
   const navigate = useNavigate();
 
   return (
