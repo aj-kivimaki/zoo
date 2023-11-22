@@ -29,19 +29,22 @@ function App() {
           return { ...elem, likes: elem.likes - 1 };
         }
       } else {
-        return zoo[category];
+        return { ...elem };
       }
     });
     setZoo({ ...zoo, [category]: updatedCategory });
   }
 
   const handleSearch = (e) => setSearch(e.target.value);
-  const handleClean = () => setSearch("");
+  const handleClean = (e) => {
+    setSearch("");
+    e.target.reset();
+  };
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root handlesearch={handleSearch} handleclean={handleClean} />,
+      element: <Root handleSearch={handleSearch} handleClean={handleClean} />,
       errorElement: <Error />,
       children: [
         { path: "/", element: <Home /> },

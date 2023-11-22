@@ -18,6 +18,7 @@ const Category = ({ zoo, onRemove, addLike, removeLike, search }) => {
           onRemove={() => onRemove(elem.name, category)}
           addLike={() => addLike(elem.name, category, "add")}
           removeLike={() => removeLike(elem.name, category)}
+          category={category}
         />
       ));
 

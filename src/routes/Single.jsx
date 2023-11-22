@@ -5,7 +5,7 @@ const Single = ({ zoo }) => {
   const category = params.category;
   const title = params.name;
 
-  const data = zoo[category].find((elem) => elem.name === title);
+  const data = zoo[category].find((elem) => elem.name.toLowerCase() === title);
   const navigate = useNavigate();
 
   return (
@@ -16,18 +16,17 @@ const Single = ({ zoo }) => {
           alt="random-pic-unsplash"
         />
         <div className="info">
-          <button
-            onClick={() => navigate(-1)}
-            className="material-symbols-outlined navigate-back"
-          >
-            close
-          </button>
           <div className="title">
             <h2>{data.name}</h2>
           </div>
           <div className="likes">
             <span className="material-symbols-outlined">favorite</span>
             <span className="number">{data.likes}</span>
+          </div>
+          <div className="navigate-back-wrap">
+            <button onClick={() => navigate(-1)} className="navigate-back">
+              Go back
+            </button>
           </div>
         </div>
       </div>

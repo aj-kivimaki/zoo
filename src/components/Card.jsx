@@ -14,7 +14,7 @@ const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
       />
       <div>
         <h2 className="title">{title}</h2>
-        <div className="bottom-row">
+        <div className="middle-row">
           <button className="minus-button" onClick={removeLike}>
             <span className="material-symbols-outlined">heart_minus</span>
           </button>
@@ -30,7 +30,7 @@ const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
         </div>
       </div>
       <div className="see-more">
-        <Link to={title}>SEE MORE</Link>
+        <Link to={title.toLowerCase()}>SEE MORE</Link>
       </div>
     </div>
   );
