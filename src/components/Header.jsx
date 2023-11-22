@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Search from "./Search";
 
-const Header = ({ onchange }) => {
+const Header = ({ onchange, onclick }) => {
   return (
     <header className="header-container">
       <h1 className="logo">Zoo</h1>
@@ -19,12 +19,12 @@ const Header = ({ onchange }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/animals" className="link">
+            <NavLink to="/animals" className="link" /* onClick={onclick} */>
               Animals
             </NavLink>
           </li>
           <li>
-            <NavLink to="/birds" className="link">
+            <NavLink to="/birds" className="link" /* onClick={onclick} */>
               Birds
             </NavLink>
           </li>

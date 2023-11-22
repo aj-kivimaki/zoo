@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { animals as animalsList, birds as birdsList } from "../animalsList";
 import Card from "./components/Card";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
@@ -7,14 +8,23 @@ import About from "./routes/About";
 import Category from "./routes/Category";
 import Single from "./routes/Single";
 import Error from "./routes/Error";
-import { animals as animalsList, birds as birdsList } from "../animalsList";
 
 function App() {
+  // use state for creatures, animals, birds, fish
+  /* const [zoo, setZoo] = useState({
+    animals: animalsList,
+    birds: birdsList,
+  }); */
+
   const [animals, setAnimals] = useState(animalsList);
   const [birds, setBirds] = useState(birdsList);
+
   const [search, setSearch] = useState("");
+  console.log(search);
 
   function removeHandler(name, creatures) {
+    // zoo[creatures].filter...
+    // setZoo({...zoo, [creatures], newArray})  - - - use category instead of creatures
     creatures === "animals"
       ? setAnimals(animals.filter((animal) => animal.name !== name))
       : setBirds(birds.filter((bird) => bird.name !== name));
@@ -25,6 +35,7 @@ function App() {
   }
 
   function updateLikes(name, creatures, action) {
+    // zoo[category].map...
     const updatedCreatures = checkCreatures(creatures).map((creature) => {
       if (creature.name === name) {
         if (action === "add") {
@@ -37,14 +48,20 @@ function App() {
       }
     });
 
+    // setZoo({...zoo, [creatures], newArray})  - - - use category instead of creatures
     creatures === "animals"
       ? setAnimals(updatedCreatures)
       : setBirds(updatedCreatures);
   }
 
+  function handleClean() {
+    console.log("clean");
+    setSearch("");
+  }
+
   function checkCreatures(creatures) {
     return creatures === "animals" ? animals : birds;
-  }
+  } // use state, more than two categories..
 
   function filterCreatures(creatures) {
     const filteredCreatures = checkCreatures(creatures)
@@ -59,8 +76,7 @@ function App() {
           onRemove={() => removeHandler(creature.name, creatures)}
           addLike={() => updateLikes(creature.name, creatures, "add")}
           removeLike={() => updateLikes(creature.name, creatures)}
-          onClick={() => console.log("card clicked")}
-          category={creatures}
+          category={creatures} //search handler
         />
       ));
     return filteredCreatures;
@@ -69,18 +85,19 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root handleSearch={handleSearch} />,
+      element: <Root handleSearch={handleSearch} handleClean={handleClean} />, // handleClean
       errorElement: <Error />,
       children: [
         { path: "/", element: <Home /> },
         {
-          path: "/animals",
+          path: ":category",
+          // pass all the props here
           element: (
             <Category filterCreatures={filterCreatures} creature="animals" />
           ),
         },
         {
-          path: "/animals/:animal",
+          path: "/animals/:animal", // /:category/:name
           element: <Single categoryArray={animals} category="animal" />,
         },
         {

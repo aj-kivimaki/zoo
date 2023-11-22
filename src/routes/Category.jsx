@@ -1,4 +1,10 @@
+import { useParams } from "react-router-dom";
+
 const Category = ({ filterCreatures, creature }) => {
+  const params = useParams();
+  const category = params.category;
+  // console.log(category);
+
   return (
     <main className="page">
       <div className="cards match">

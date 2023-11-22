@@ -157,7 +157,7 @@ input:focus {
   top: 5px;
   width: 30px;
   height: 30px;
-  background-color: rgba(50, 75, 117, 0.802);
+  background-color: rgba(50, 75, 117, 0.8);
   color: white;
   border: none;
   border-radius: 50%;
@@ -269,7 +269,7 @@ input:focus {
   font-family: monospace;
   color: white;
   font-size: 24px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -313,8 +313,13 @@ input:focus {
 
 /* - - - SINGLE - - - */
 
+.single-wrap {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .single {
-  margin: 100px auto;
+  margin: 0 auto;
+  padding-top: 100px;
   width: 70%;
   display: flex;
   justify-content: center;
@@ -334,17 +339,14 @@ input:focus {
   width: 50%;
   max-height: 500px;
   max-width: 500px;
-}
-
-.single .title,
-.single .likes {
-  padding: 80px 0;
+  padding: 140px 0;
 }
 
 .single .title {
   text-align: center;
   font-size: 40px;
   text-transform: capitalize;
+  padding-bottom: 30px;
 }
 
 .single .likes {
