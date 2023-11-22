@@ -39,13 +39,12 @@ ul {
   justify-content: space-between;
   font-size: 26px;
   background-color: rgba(85, 97, 118, 0.7);
-  padding: 16px 0;
+  padding: 10px 40px;
 }
 
 header h1 {
   color: white;
   font-size: 48px;
-  padding: 0 40px;
 }
 
 a {
@@ -94,17 +93,16 @@ a.active {
 
 /* - - - MAIN - - - */
 
-.search,
-.links {
-  padding: 10px 40px;
-  margin: 0 auto;
+.links,
+.search {
+  padding: 5px 0;
 }
 
 input {
   border: 1px solid #324b75d5;
   border-radius: 5px;
   color: #333;
-  padding: 16px;
+  padding: 16px 20px;
   margin: 0 40px;
   font-size: 18px;
 }
@@ -252,7 +250,7 @@ input:focus {
 
 .links li .link {
   display: inline-block;
-  padding: 16px 18px;
+  padding: 18px;
 }
 
 .links li:hover {
@@ -446,9 +444,8 @@ footer {
   height: 20px;
   font-size: 12px;
   padding-top: 2px;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  background-color: rgba(85, 97, 118, 0.7);
 }
 
 @media (max-width: 1040px) {

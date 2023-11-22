@@ -1,13 +1,15 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import Search from "./Search";
 
 const Header = ({ onchange, onclick }) => {
+  const { pathname } = useLocation();
+
   return (
     <header className="header-container">
       <h1 className="logo">
         <Link to="/">Zoo</Link>
       </h1>
-      <Search onchange={onchange} />
+      {pathname !== "/about" && <Search onchange={onchange} />}
       <nav className="links">
         <ul>
           <li>
