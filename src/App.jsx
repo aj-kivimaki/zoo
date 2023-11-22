@@ -10,17 +10,13 @@ import Single from "./routes/Single";
 import Error from "./routes/Error";
 
 function App() {
-  // use state for creatures, animals, birds, fish
-  /* const [zoo, setZoo] = useState({
+  const [animals, setAnimals] = useState(animalsList);
+  const [birds, setBirds] = useState(birdsList);
+  /*  const [zoo, setZoo] = useState({
     animals: animalsList,
     birds: birdsList,
   }); */
-
-  const [animals, setAnimals] = useState(animalsList);
-  const [birds, setBirds] = useState(birdsList);
-
   const [search, setSearch] = useState("");
-  console.log(search);
 
   function removeHandler(name, creatures) {
     // zoo[creatures].filter...
@@ -61,7 +57,7 @@ function App() {
 
   function checkCreatures(creatures) {
     return creatures === "animals" ? animals : birds;
-  } // use state, more than two categories..
+  } // get rid of this
 
   function filterCreatures(creatures) {
     const filteredCreatures = checkCreatures(creatures)
@@ -85,7 +81,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root handleSearch={handleSearch} handleClean={handleClean} />, // handleClean
+      element: <Root handleSearch={handleSearch} handleClean={handleClean} />,
       errorElement: <Error />,
       children: [
         { path: "/", element: <Home /> },
@@ -97,18 +93,8 @@ function App() {
           ),
         },
         {
-          path: "/animals/:animal", // /:category/:name
+          path: "/:category/:name",
           element: <Single categoryArray={animals} category="animal" />,
-        },
-        {
-          path: "/birds/",
-          element: (
-            <Category filterCreatures={filterCreatures} creature="birds" />
-          ),
-        },
-        {
-          path: "/birds/:bird",
-          element: <Single categoryArray={birds} category="bird" />,
         },
         { path: "/about", element: <About /> },
       ],
