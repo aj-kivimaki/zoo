@@ -24,7 +24,7 @@ img {
 }
 
 .page {
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 102px);
 }
 
 ul {
@@ -103,7 +103,6 @@ input {
   border-radius: 5px;
   color: #333;
   padding: 16px 20px;
-  margin: 0 40px;
   font-size: 18px;
 }
 
@@ -124,7 +123,7 @@ input:focus {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 30px;
 }
 
 .card {
@@ -214,6 +213,7 @@ input:focus {
   margin-top: 10px;
   padding: 6px 0;
   font-size: 11px;
+  line-height: 1.5;
   font-weight: bold;
   background-color: rgba(85, 97, 118, 0.7);
   text-align: center;
@@ -250,7 +250,7 @@ input:focus {
 
 .links li .link {
   display: inline-block;
-  padding: 18px;
+  padding: 14px;
 }
 
 .links li:hover {
@@ -273,12 +273,18 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   line-height: 1.7;
+  padding: 40px 0;
 }
 
 .about .container {
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+.about-list {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
 }
 
 .about h2,
@@ -289,7 +295,7 @@ input:focus {
 .about .list-title {
   background-color: rgba(51, 51, 51, 0.8);
   font-size: 24px;
-  padding: 10px;
+  padding: 15px 30px;
 }
 
 .about-project {
@@ -299,15 +305,14 @@ input:focus {
 }
 
 .about p {
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 18px;
 }
 
 .about li {
+  padding: 5px 30px;
   font-size: 18px;
-  padding-left: 10px;
   color: #333;
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* - - - SINGLE - - - */
@@ -318,7 +323,7 @@ input:focus {
 
 .single {
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -456,7 +461,7 @@ footer {
   .single {
     flex-direction: column;
     width: 70%;
-    margin: 40px auto;
+    margin: 0 auto;
   }
 
   .single img {

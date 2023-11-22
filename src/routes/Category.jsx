@@ -29,7 +29,7 @@ const Category = ({ zoo, onRemove, addLike, removeLike, search }) => {
     <main className="page">
       <div className="cards match">
         {filterCategory(category).length === 0
-          ? "No match found!"
+          ? "No matches found!"
           : filterCategory(category)}
       </div>
     </main>
