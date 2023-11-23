@@ -110,14 +110,6 @@ input:focus {
   outline: darkred;
 }
 
-.plus-likes {
-  color: darkred;
-}
-
-.minus-likes {
-  color: black;
-}
-
 .cards {
   padding: 60px;
   display: flex;
@@ -196,6 +188,7 @@ input:focus {
 .card .likes {
   background-color: #ececec;
   text-align: center;
+  color: #333;
 }
 
 .card img {
@@ -367,7 +360,7 @@ input:focus {
 }
 
 .single .material-symbols-outlined {
-  font-size: 140px;
+  font-size: 150px;
   color: darkred;
 }
 
@@ -396,8 +389,8 @@ input:focus {
 .single .number {
   position: absolute;
   font-size: 36px;
-  padding-bottom: 20px;
-  color: darkred;
+  padding-bottom: 12px;
+  /* color: darkred; */
 }
 
 /* - - - ERROR - - - */
@@ -409,8 +402,8 @@ input:focus {
 }
 
 .error .not-found {
-  font-size: 22px;
-  padding-bottom: 20px;
+  font-size: 18px;
+  padding: 10px 0;
 }
 
 .error-msg {
@@ -431,6 +424,7 @@ input:focus {
   color: #333;
   transition: all ease 0.1s;
   margin: 20px;
+  box-shadow: 1px 1px 3px #333;
 }
 
 .error button:hover {

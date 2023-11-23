@@ -7,8 +7,8 @@ const Error = () => {
   return (
     <div className="page error">
       <div className="error-msg">
-        <h2>Woot?!</h2>
-        <p className="not-found">Page not found!</p>
+        <h2>?!?!?!</h2>
+        <p className="not-found">There&#39;s nothing in here</p>
         <p>
           <i>{error.statusText || error.message}</i>
         </p>

@@ -22,7 +22,7 @@ const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
             <span className="material-symbols-outlined">
               {likes >= 0 ? "favorite" : "heart_broken"}
             </span>
-            <p className={likes >= 0 ? "plus-likes" : "minus-likes"}>{likes}</p>
+            <p>{likes}</p>
           </div>
           <button className="plus-button" onClick={addLike}>
             <span className="material-symbols-outlined">heart_plus</span>

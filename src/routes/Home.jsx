@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import animal from "../assets/animal.jpg";
-import bird from "../assets/bird.jpg";
+import animal from "../images/animal.jpg";
+import bird from "../images/bird.jpg";
 
 const Home = () => {
   return (

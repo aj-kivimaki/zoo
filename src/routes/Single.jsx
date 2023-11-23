@@ -1,12 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 const Single = ({ zoo }) => {
+  const navigate = useNavigate();
   const params = useParams();
   const category = params.category;
   const title = params.name;
-
   const data = zoo[category].find((elem) => elem.name.toLowerCase() === title);
-  const navigate = useNavigate();
 
   return (
     <div className="single-wrap">

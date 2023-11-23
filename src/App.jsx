@@ -16,21 +16,16 @@ function App() {
   });
 
   function handleRemove(name, category) {
-    const newArray = zoo[category].filter((elem) => elem.name !== name);
-    setZoo({ ...zoo, [category]: newArray });
+    const updatedCategory = zoo[category].filter((elem) => elem.name !== name);
+    setZoo({ ...zoo, [category]: updatedCategory });
   }
 
   function handleLikes(name, category, action) {
     const updatedCategory = zoo[category].map((elem) => {
-      if (elem.name === name) {
-        if (action === "add") {
-          return { ...elem, likes: elem.likes + 1 };
-        } else {
-          return { ...elem, likes: elem.likes - 1 };
-        }
-      } else {
-        return { ...elem };
-      }
+      if (elem.name !== name) return elem;
+      return action === "add"
+        ? { ...elem, likes: elem.likes + 1 }
+        : { ...elem, likes: elem.likes - 1 };
     });
     setZoo({ ...zoo, [category]: updatedCategory });
   }
@@ -68,7 +63,6 @@ function App() {
       ],
     },
   ]);
-
   return <RouterProvider router={router} />;
 }
 
