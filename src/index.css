@@ -115,13 +115,14 @@ input:focus {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.1);
   gap: 30px;
 }
 
 .card {
   border-radius: 5px;
   width: 240px;
-  background-color: #ececec;
+  background-color: white;
   position: relative;
   box-shadow: 2px 2px 2px #324b7553;
   text-transform: capitalize;
@@ -186,7 +187,6 @@ input:focus {
 }
 
 .card .likes {
-  background-color: #ececec;
   text-align: center;
   color: #333;
 }
@@ -195,6 +195,10 @@ input:focus {
   border-radius: 5px 5px 0 0;
   height: 260px;
   object-fit: cover;
+}
+
+.card .img-skeleton {
+  height: 262px;
 }
 
 .card .likes .material-symbols-outlined {
@@ -323,10 +327,16 @@ input:focus {
 }
 
 .single img {
-  width: 50%;
-  max-width: 500px;
-  max-height: 500px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
+}
+
+.single .img-skeleton {
+  width: 350px;
+  height: 350px;
+  border-radius: 0;
+  transform: translateY(-2px);
 }
 
 .single .info {
@@ -336,13 +346,12 @@ input:focus {
   align-items: center;
   background-color: white;
   color: #333;
-  width: 50%;
-  max-height: 500px;
-  max-width: 500px;
+  height: 350px;
+  width: 350px;
 }
 
 .single .title {
-  padding: 80px 0;
+  padding: 40px 0;
   text-align: center;
   font-size: 32px;
   text-transform: capitalize;
@@ -352,20 +361,21 @@ input:focus {
 .single .navigate-back-wrap {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 }
 
 .single .likes {
-  padding-bottom: 50px;
+  position: relative;
+  padding-bottom: 60px;
 }
 
 .single .material-symbols-outlined {
-  font-size: 150px;
+  font-size: 140px;
   color: darkred;
 }
 
 .single .navigate-back-wrap {
-  padding: 20px;
+  padding: 40px;
   margin: 0 auto;
 }
 
@@ -374,7 +384,7 @@ input:focus {
   font-size: 16px;
   text-align: center;
   margin: 0 auto;
-  background-color: rgba(85, 97, 118, 0.7);
+  background-color: #333;
   color: white;
   padding: 5px 10px;
   border-radius: 3px;
@@ -383,14 +393,14 @@ input:focus {
 
 .single .navigate-back:hover {
   cursor: pointer;
-  opacity: 0.8;
+  color: #333;
+  background-color: white;
 }
 
 .single .number {
   position: absolute;
-  font-size: 36px;
-  padding-bottom: 12px;
-  /* color: darkred; */
+  font-size: 30px;
+  bottom: 12px;
 }
 
 /* - - - ERROR - - - */
@@ -443,8 +453,8 @@ footer {
   height: 20px;
   font-size: 12px;
   padding-top: 2px;
-  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
+  color: white;
 }
 
 @media (max-width: 1040px) {
@@ -454,15 +464,10 @@ footer {
 
   .single {
     flex-direction: column;
-    width: 70%;
-    margin: 0 auto;
+    align-items: center;
   }
 
-  .single img {
-    width: 100%;
-  }
-
-  .single .info {
-    width: 100%;
+  .single .img-skeleton {
+    transform: translateY(0);
   }
 }

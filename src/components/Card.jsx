@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  });
+
   return (
     <div className="card">
       <div className="close-button">
@@ -8,10 +18,14 @@ const Card = ({ title, likes, onRemove, addLike, removeLike, category }) => {
           close
         </button>
       </div>
-      <img
-        src={`https://source.unsplash.com/800x800/?${title},${category}`}
-        alt="random-pic-unsplash"
-      />
+      {loading ? (
+        <Skeleton className="img-skeleton" />
+      ) : (
+        <img
+          src={`https://source.unsplash.com/800x800/?${title},${category}`}
+          alt="random-pic-unsplash"
+        />
+      )}
       <div>
         <h2 className="title">{title}</h2>
         <div className="middle-row">
