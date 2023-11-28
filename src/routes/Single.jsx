@@ -18,8 +18,8 @@ const Single = ({ zoo }) => {
   });
 
   return (
-    <div className="single-wrap">
-      <div className="single page">
+    <div className="page">
+      <div className="single">
         {loading ? (
           <Skeleton className="img-skeleton" />
         ) : (
