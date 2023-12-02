@@ -32,6 +32,16 @@ const Header = ({ onchange, onclick }) => {
               Birds
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/insects" className="link" onClick={onclick}>
+              Insects
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/fish" className="link" onClick={onclick}>
+              Fish
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

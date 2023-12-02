@@ -77,19 +77,15 @@ a.active {
 .right,
 .left {
   position: relative;
-  width: 50%;
+  width: 25%;
 }
 
 .front-page-title {
   position: absolute;
-  top: 40%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid black;
-  padding: 10px 10px;
-  border-radius: 5px;
 }
 
 /* - - - MAIN - - - */

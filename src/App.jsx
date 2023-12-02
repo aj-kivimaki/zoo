@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { animals as animalsList, birds as birdsList } from "../animalsList";
+import {
+  animals as animalsList,
+  birds as birdsList,
+  fish as fishList,
+  insects as insectsList,
+} from "../animalsList";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import About from "./routes/About";
@@ -13,6 +18,8 @@ function App() {
   const [zoo, setZoo] = useState({
     animals: animalsList,
     birds: birdsList,
+    fish: fishList,
+    insects: insectsList,
   });
 
   function handleRemove(name, category) {
