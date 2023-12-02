@@ -31,3 +31,7 @@ Add links to:
 - Animals // listing all animals, have animals search
 - Birds // listing all birds, have birds search
 - About // page about this project and summary of the features and what you learned with this project
+
+## LIVE on Netlify
+
+https://zoo-react-app.netlify.app/
