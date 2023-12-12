@@ -228,9 +228,6 @@ input:focus {
 
 .links ul {
   display: flex;
-}
-
-.links ul {
   background-color: rgba(200, 200, 200, 0.2);
   border: 1px solid #333;
   border-radius: 5px;
