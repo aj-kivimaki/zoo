@@ -11,7 +11,7 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Category from "./routes/Category";
 import Single from "./routes/Single";
-import Error from "./routes/Error";
+import ErrorPage from "./routes/ErrorPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -47,7 +47,7 @@ function App() {
     {
       path: "/",
       element: <Root handleSearch={handleSearch} handleClean={handleClean} />,
-      errorElement: <Error />,
+      errorElement: <ErrorPage />,
       children: [
         { path: "/", element: <Home /> },
         {
