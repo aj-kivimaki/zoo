@@ -66,24 +66,30 @@ a.active {
 
 .front-page {
   display: flex;
+  flex-direction: column;
   height: 100vh;
+}
+
+.front-page .top-row,
+.front-page .bottom-row {
+  height: 85vh;
+  display: flex;
+}
+
+.front-page .link-container {
+  position: relative;
 }
 
 .front-page img {
   height: 100%;
+  width: 50vw;
   object-fit: cover;
-}
-
-.right,
-.left {
-  position: relative;
-  width: 25%;
 }
 
 .front-page-title {
   position: absolute;
   top: 10%;
-  left: 50%;
+  left: 90px;
   transform: translate(-50%, -50%);
   color: white;
 }
