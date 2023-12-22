@@ -25,7 +25,7 @@ img {
 
 .page {
   background-color: rgba(255, 255, 255, 0.1);
-  min-height: calc(100vh - 102px);
+  min-height: calc(100vh - 98px);
 }
 
 ul {
@@ -65,14 +65,17 @@ a.active {
 /* - - - HOME - - - */
 
 .front-page {
+  margin: 0;
+  padding: 0;
+}
+
+.front-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .front-page .top-row,
 .front-page .bottom-row {
-  height: 85vh;
   display: flex;
 }
 
@@ -81,9 +84,19 @@ a.active {
 }
 
 .front-page img {
-  height: 100%;
+  height: 50vh;
   width: 50vw;
   object-fit: cover;
+  vertical-align: bottom;
+}
+
+.front-page .birds img,
+.front-page .insects img {
+  object-position: 0 25%;
+}
+
+.front-page .fish img {
+  object-position: 0 35%;
 }
 
 .front-page-title {
@@ -459,6 +472,13 @@ footer {
 @media (max-width: 700px) {
   .links .link-container {
     display: block;
+  }
+  .front-page .top-row,
+  .front-page .bottom-row {
+    flex-direction: column;
+  }
+  .front-page img {
+    width: 100%;
   }
 }
 
