@@ -1,10 +1,16 @@
-# Zoo
+# Zoo App (react)
 
-In this project, you practice creating components using state and props. Also, you learn how to work with lists and manipulate the state.
+## Description
 
-This example is the MVP and you should improve it.
+Browse pictures of animals in four categories (animals, fish, insects and birds). You can give likes and open each as a single page.
 
-## Instructions for your own project
+## About the Project
+
+In this project, I practiced creating components using state and props. Also, I learned how to work with lists and manipulate the state.
+
+See the [About](https://zoo-react-app.netlify.app/about) page for more detailes.
+
+## Instructions I had for creating this project (MVP)
 
 1. Create a new React app
 2. Clean App.js
@@ -23,8 +29,6 @@ This example is the MVP and you should improve it.
 7. Connect animalsList.js with App state
 8. Display animals on the App (list and keys)
 
-## Refactor your zoo app:
-
 Add links to:
 
 - Home // only two big images - links to animals and bird pages
@@ -32,6 +36,8 @@ Add links to:
 - Birds // listing all birds, have birds search
 - About // page about this project and summary of the features and what you learned with this project
 
-## LIVE on Netlify
+## Quick Start
 
-https://zoo-react-app.netlify.app/
+Check it live:
+
+[zoo-react-app.netlify.app/](https://zoo-react-app.netlify.app/)
