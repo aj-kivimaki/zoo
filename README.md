@@ -10,26 +10,26 @@ In this project, I practiced creating components using state and props. Also, I 
 
 See the [About](https://zoo-react-app.netlify.app/about) page for more detailes.
 
-## Instructions I had for creating this project (MVP)
+## Based on following instructions (MVP)
 
-1. Create a new React app
+1. Create a new React Vite app
 2. Clean App.js
 3. Make Header, Footer and Card components (separated files)
 4. The card must have
 
-- image,
-- a title,
-- likes icon,
-- count of likes,
-- add and remove like buttons,
-- remove the card button.
+- image
+- a title
+- likes icon
+- count of likes
+- add and remove like buttons
+- remove the card button
 
 5. Import Header, Footer and Card to the App component
 6. Style your app
 7. Connect animalsList.js with App state
 8. Display animals on the App (list and keys)
 
-Add links to:
+Added links to:
 
 - Home // only two big images - links to animals and bird pages
 - Animals // listing all animals, have animals search
@@ -38,6 +38,4 @@ Add links to:
 
 ## Quick Start
 
-Check it live:
-
-[zoo-react-app.netlify.app/](https://zoo-react-app.netlify.app/)
+[Check it out!](https://zoo-react-app.netlify.app)
